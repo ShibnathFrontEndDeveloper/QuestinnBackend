@@ -1,0 +1,209 @@
+.custom_contain{
+    margin-block:60px ;
+}
+
+.profile_list_box{
+    background: #fff;
+    box-shadow: 2px 5px 8px #00000084;
+    border-radius: 14px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ing_food_dtls {
+    display: flex;
+    padding-bottom: 15px;
+}
+.ing_food_dtls .imgBox_part{
+    
+}
+.ing_food_dtls .imgBox_part img{
+    width: 200px;
+    height: 180px;
+}
+.foodDtls_box{
+    padding-left: 20px;
+}
+.foodDtls_box a {
+    margin-top: 20px;
+    line-height: 6;
+    background: #3d47ff;
+    padding: 8px 15px;
+    color: #fff;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+.foodDtls_box .food_name{
+    font-size: 20px;
+    font-weight: 700;
+}
+.foodDtls_box .order_id{
+    font-size: 12px;
+}
+.foodDtls_box .room_number{
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+.deivr_to span{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.cmd_table_Part .cmd_table{
+    /* border-collapse:separate; */
+    border-color: #ddd;
+}
+.cmd_table_Part .cmd_table tbody, td, tfoot, th, thead, tr{
+    border-width: .2;
+}
+
+.cmd_table_Part .cmd_table thead{
+    background: rgb(0, 255, 255);
+    border: 1px solid #ddd;
+}
+
+.cmd_table_Part .cmd_table .cmd_img{
+    width: 70px;
+}
+.cmd_dropdown .show_menu{
+    display: block;
+}
+.cmd_dropdown .toggle_btn{
+    background: transparent;
+    border: none;
+    color: #000;
+    padding: 0;
+}
+.cmd_dropdown .toggle_btn:focus{
+    box-shadow: none;
+}
+
+
+.delvr_detail_wrapper {
+    display: flex;
+    margin-top: 20px;
+}
+
+.wrapper_box {
+    position: relative;
+}
+.wrapper_box:before {
+    content: '';
+    position: absolute;
+    height: 38px;
+    border-right: 1px dashed #a9abb2;
+    top: 35px;
+    left: 14px;
+}
+
+.delvr_detail_wrapper .icon_box i {
+    font-size: 30px;
+    color: #1e71db;
+}
+.para_d {
+    margin-left: 15px;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid lightgrey;
+    width: 100%;
+
+}
+.para_d h6 {
+    font-size: 15px;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+.para_d p {
+    font-size: 13px;
+    color: #7e808c;
+    font-weight: 300;
+    text-transform: capitalize;
+    padding-top: 5px;
+}
+.itemDtls_box {
+    padding-block: 15px;
+    border-top: 1px solid #000;
+    margin-top: 15px;
+}
+.itemDtls_box h5 {
+    font-size: 16px;
+    color: #7e808c;
+    text-transform: uppercase;
+}
+.dtls_wrrapar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dtls_box h6 {
+    font-size: 13px;
+    color: #7e808c;
+    text-transform: capitalize;
+}
+
+.dtls_box .hadding_h i {
+    color: red;
+    margin-right: 5px;
+}
+.grandTtl_box {
+    display: flex;
+    padding: 10px 0;
+    border-top: 1px solid #000;
+}
+.grandTtl_box .allTxt_box {
+    flex: 1;
+}
+.alltax_grand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.grandTtl_box .allTxt_box p {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+.alltax_grand h5 {
+    font-size: 15px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.card_border {
+    border-bottom: 1px dashed #adb5bd;
+}
+.rate_box {
+    text-align: center;
+}
+.rate_box i {
+    font-size: 22px;
+    color: #ffa700;
+}
+.smly_box {
+    display: flex;
+    justify-content: center;
+}
+lottie-player {
+    width: 250px;
+}
+.modal-header {
+    border-bottom: none;
+}
+.rate_box .form-check-inline{
+    margin-right: 0;
+}
+
+.edit_form{
+    padding-left: 15px;
+   
+}
+.edit_form .logo_box img{
+    width: 80px;
+}
+.nav-pills .nav-link{
+    width: 140px;
+    color: #000;
+}
+.nav-pills .nav-link.active{
+    background: #2FE0E3;
+    color: #000;
+}
