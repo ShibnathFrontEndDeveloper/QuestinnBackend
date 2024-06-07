@@ -26,6 +26,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 //new
 Route::get('/get_total_amount', [HomeController::class, 'get_total_amount'])->name('get_total_amount');
+Route::get('/get_total_room_available', [HomeController::class, 'get_total_room_available'])->name('get_total_room_available');
 //new
 Route::get('/contact_us', [HomeController::class, 'contact_us'])->name('contact_us');
 Route::get('/facilities', [HomeController::class, 'facilities'])->name('facilities');
