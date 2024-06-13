@@ -290,6 +290,7 @@ class OrderController extends Controller
                     ->where('from_date', '<', $allReq['end_date'])
                     ->where('to_date', '>', $allReq['start_date']);
                 });
+                $orderCount = $order->get()->count();
                 if($order->get()->count() > 0){
                     $order = $order->get();
                     $roomNoGet = [];
@@ -307,7 +308,11 @@ class OrderController extends Controller
                         return 0;
                     }else{
                         $total = (count($rommNos) - count($roomNoGet));
-                        return $total;
+                        if($orderCount >= $total){
+                            return 0;
+                        }else{
+                            return $total;
+                        }
                     }
                 }else{
                     return count($rommNos);

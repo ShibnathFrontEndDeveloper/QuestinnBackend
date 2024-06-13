@@ -208,7 +208,7 @@
 
                                 <label for="" class="form-label">Check In</label>
 
-                                <input type="date" min="<?php echo date("Y-m-d"); ?>" id="start_date{{$room->id}}" name="check_in" class="form-control" required onChange="myFunction('{{$room->id}}')">
+                                <input type="date" min="<?php echo date("Y-m-d"); ?>" id="start_date{{$room->id}}" name="check_in" class="form-control" required onChange="dateChange('{{$room->id}}')">
 
                             </div>
 
@@ -220,7 +220,7 @@
 
                                 <label for="" class="form-label">Check Out</label>
 
-                                <input type="date" min="<?php echo date("Y-m-d"); ?>" id="end_date{{$room->id}}" name="check_out" class="form-control" required onChange="myFunction('{{$room->id}}')">
+                                <input type="date" min="<?php echo date("Y-m-d"); ?>" id="end_date{{$room->id}}" name="check_out" class="form-control" required onChange="dateChange('{{$room->id}}')">
 
                             </div>
 
@@ -256,7 +256,7 @@
 
                                 <label for="" class="form-label">No. of Rooms(Available)</label>
 
-                                <select name="no_rooms" id="roomQuantity{{$room->id}}" class="form-select" onchange="myFunction('{{$room->id}}')">
+                                <!-- <select name="no_rooms" id="roomQuantity{{$room->id}}" class="form-select" onchange="myFunction('{{$room->id}}')">
 
                                     @for($i = 1;$i <= $room->available_rooms; $i++)
 
@@ -264,6 +264,9 @@
 
                                     @endfor
 
+                                </select> -->
+                                <select name="no_rooms" id="roomQuantity{{$room->id}}" class="form-select" onchange="myFunction('{{$room->id}}')">
+                                    <option value="0">0</option>
                                 </select>
 
                             </div>
