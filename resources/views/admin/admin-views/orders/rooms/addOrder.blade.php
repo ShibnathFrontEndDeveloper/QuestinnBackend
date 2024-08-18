@@ -48,11 +48,11 @@
 
           <div class="col-sm-10">
 
-            <input type="email" class="form-control @error('name') is-invalid @enderror" id="for_type" name="email" placeholder="Enter email" >
+            <input type="email" class="form-control @error('email') is-invalid @enderror" id="for_type" name="email" placeholder="Enter email" >
 
-            @if ($errors->has('name'))
+            @if ($errors->has('email'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('email') }}</span>
 
             @endif
 
@@ -68,11 +68,11 @@
 
           <div class="col-sm-10">
 
-            <input type="tel" class="form-control @error('name') is-invalid @enderror" id="for_type" name="phone" placeholder="Enter mobile number" >
+            <input type="tel" class="form-control @error('phone') is-invalid @enderror" id="for_type" name="phone" placeholder="Enter mobile number" >
 
-            @if ($errors->has('name'))
+            @if ($errors->has('phone'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('phone') }}</span>
 
             @endif
 
@@ -88,11 +88,11 @@
 
           <div class="col-sm-10">
 
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="for_type" name="address" placeholder="Enter address" >
+            <input type="text" class="form-control @error('address') is-invalid @enderror" id="for_type" name="address" placeholder="Enter address" >
 
-            @if ($errors->has('name'))
+            @if ($errors->has('address'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('address') }}</span>
 
             @endif
 
@@ -126,9 +126,9 @@
 
           </select>
 
-            @if ($errors->has('name'))
+            @if ($errors->has('id_name'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('id_name') }}</span>
 
             @endif
 
@@ -144,11 +144,11 @@
 
           <div class="col-sm-10">
 
-            <input type="file" class="form-control @error('image') is-invalid @enderror" id="for_type" name="id_proff" placeholder="Enter title" >
+            <input type="file" class="form-control @error('id_proff') is-invalid @enderror" id="for_type" name="id_proff" placeholder="Enter title" >
 
-            @if ($errors->has('image'))
+            @if ($errors->has('id_proff'))
 
-              <span class="text-danger">{{ $errors->first('image') }}</span>
+              <span class="text-danger">{{ $errors->first('id_proff') }}</span>
 
             @endif
 
@@ -168,11 +168,11 @@
 
           <div class="col-sm-10">
 
-            <input type="date" class="form-control @error('name') is-invalid @enderror" id="check_in" name="check_in" onChange="dateChange()" placeholder="Enter name" >
+            <input type="date" class="form-control @error('check_in') is-invalid @enderror" id="check_in" name="check_in" onChange="dateChange()" placeholder="Enter name" >
 
-            @if ($errors->has('name'))
+            @if ($errors->has('check_in'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('check_in') }}</span>
 
             @endif
 
@@ -222,9 +222,9 @@
 
           </select>
 
-            @if ($errors->has('name'))
+            @if ($errors->has('room'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('room') }}</span>
 
             @endif
 
@@ -240,11 +240,11 @@
 
           <div class="col-sm-10">
 
-            <input type="number" class="form-control @error('name') is-invalid @enderror" id="adults"  name="adults" value="" readonly>
+            <input type="number" class="form-control @error('adults') is-invalid @enderror" id="adults"  name="adults" value="" readonly>
 
-            @if ($errors->has('name'))
+            @if ($errors->has('adults'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('adults') }}</span>
 
             @endif
 
@@ -260,11 +260,11 @@
 
           <div class="col-sm-10">
 
-            <input type="number" class="form-control @error('name') is-invalid @enderror" id="childrens" name="childrens" value="" readonly>
+            <input type="number" class="form-control @error('childrens') is-invalid @enderror" id="childrens" name="childrens" value="" readonly>
 
-            @if ($errors->has('name'))
+            @if ($errors->has('childrens'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('childrens') }}</span>
 
             @endif
 
@@ -284,11 +284,11 @@
 
           <div class="col-sm-10">
 
-            <input type="number" class="form-control @error('name') is-invalid @enderror" id="quantity" onkeyup="update_quantity(this.value)" name="quantity" value="">
+            <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" onkeyup="update_quantity(this.value)" name="quantity" value="">
 
-            @if ($errors->has('name'))
+            @if ($errors->has('quantity'))
 
-              <span class="text-danger">{{ $errors->first('name') }}</span>
+              <span class="text-danger">{{ $errors->first('quantity') }}</span>
 
             @endif
 
@@ -352,7 +352,7 @@
 
           <button type="submit" class="btn btn-primary">Submit</button>
 
-          <a href="{{route('admin.foods.list')}}" type="button" class="btn btn-secondary">Back</a>
+          <a href="{{route('admin.rooms.list')}}" type="button" class="btn btn-secondary">Back</a>
 
         </div>
 

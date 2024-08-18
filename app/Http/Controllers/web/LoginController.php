@@ -18,13 +18,13 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-                
+
         $validator = $request->validate([
             'email' => 'required|email:rfc,dns',
-            'password' => 'required',                        
-        ],[      
+            'password' => 'required',
+        ],[
             'email.required' => 'email is required',
-            'password.required' => 'password is required',            
+            'password.required' => 'password is required',
         ]);
 
         // if($validator->fails())
@@ -33,19 +33,19 @@ class LoginController extends Controller
         // }
 
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {                    
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             toastr()->success('You are successfully logged in!');
             return redirect('/');
         }
-        else{                                   
+        else{
             toastr()->error('Something Went Wrong');
             return redirect('/');
         }
-    
+
     }
 
     public function logout(){
-        auth()->logout();       
+        auth()->logout();
         return redirect('/');
     }
 
@@ -54,9 +54,15 @@ class LoginController extends Controller
        if($user){
         $otp = rand(1000,9999);
         $user->otp = $otp;
-        $user->save();        
+        $user->save();
         $request->session()->put('email', $request->email);
-        $checkStatus = $this->sendMail($request->email,$otp);        
+        $mailData = [
+            "name" => $user->name,
+            "otp" => $otp
+        ];
+        $template = 'email-template.forgot-password-email';
+        $subject = "Forget Password";
+        $checkStatus = $this->sendMail($request->email,$mailData,$template,$subject);
         if($checkStatus == 1){
             return response()->json([
                 'status' => 1
@@ -69,19 +75,19 @@ class LoginController extends Controller
        }else{
         return response()->json([
             'status' => 2
-        ]); 
+        ]);
        }
-              
+
     }
 
     public function check_otp(Request $request){
-        if(session()->exists('email')){        
+        if(session()->exists('email')){
             $email = $request->session()->get('email');
-            $user = User::where('email',$email)->first();            
+            $user = User::where('email',$email)->first();
             if($user->otp == $request->otp){
                 return response()->json([
                     'status' => 1
-                ]); 
+                ]);
             }
             return response()->json([
                 'status' => 0
@@ -89,19 +95,19 @@ class LoginController extends Controller
         }else {
             return response()->json([
                 'status' => 0
-            ]); 
+            ]);
         }
     }
 
     public function reset_password(Request $request){
-        if(session()->exists('email')){         
+        if(session()->exists('email')){
             $email = $request->session()->get('email');
             $user = User::where('email',$email)->first();
             $user->password = Hash::make($request->password);
             $user->save();
             return response()->json([
                 'status' => 1
-            ]); 
+            ]);
         }else {
             return response()->json([
                 'status' => 0

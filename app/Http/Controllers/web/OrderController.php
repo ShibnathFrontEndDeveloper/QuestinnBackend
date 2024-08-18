@@ -39,7 +39,7 @@ class OrderController extends Controller
         ]; 
         // $data->push($cart);
         array_push($cart,$data);
-        $request->session()->put('cart', $cart);              
+        $request->session()->put('cart', $cart);   
         return response()->json([
             'msg' => 'successfull',           
         ]);
@@ -257,7 +257,7 @@ class OrderController extends Controller
                     if ($item['product_id'] !=  $request->product_id) {
                         array_push($new_collection,$item);
                     }
-                }                      
+                } 
             $request->session()->put('cart', $new_collection);
             return response()->json([
                 'msg' => '1',

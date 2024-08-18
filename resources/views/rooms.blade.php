@@ -41,7 +41,7 @@
                 <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#filterDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <form action="{{route('searchByFilter')}}" method="POST" id="searchByFilter">
+                <form action="{{route('searchByFilter')}}" method="POST" id="searchByFilter" onsubmit="return validateFacilities()">
                   @csrf
                 <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="filterDropdown">
                   <div class="border bg-light p-3 rounded mb-3">
@@ -94,7 +94,7 @@
     
     
     <div class="col-lg-9 col-md-12 px-4" id="search_data">
-      @if($rooms)
+      @if(count($rooms) > 0)
       @foreach($rooms as $keys => $values)
       <div class="card mb-4 border-0 shadow breakfast_box">
       <div class="row g-0 p-3 align-items-center">
@@ -147,9 +147,12 @@
     </div>
       @endforeach
       @else
-      <div class="card mb-4 border-0 shadow breakfast_box">
-        No Room Found
-      </div>
+        <div class="card mb-4 border-0 shadow breakfast_box">
+            <div class="card-body text-center">
+                <h5>No Room Found</h5><br>
+               <a href="{{route('room')}}"><button class="btn btn-primary mt-3">Reload</button></a>
+            </div>
+        </div>
       @endif
     </div>
     
@@ -188,6 +191,20 @@
         }
       });           
     })
+    
+    // Validation for at least one facilities checkbox
+    function validateFacilities() {
+        var checked = $('input[name="facilities[]"]:checked').length;
+        if (checked == 0) {
+            	Swal.fire(
+					'Questinn!',
+					'Please select atleast 1 facility!',
+					'error'											
+				)
+            return false;
+        }
+        return true;
+    }
 </script>
 
 <script>

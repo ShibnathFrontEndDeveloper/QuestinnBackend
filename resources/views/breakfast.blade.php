@@ -3,7 +3,7 @@
 <section class="home_carousel food_home">
 	<div class="swiper home_swiper">
       <div class="swiper-wrapper">
-			@foreach($banner as $keys => $values) 
+			@foreach($banner as $keys => $values)
 			<div class="swiper-slide home_slide" style="background:url({{asset($values->banner)}});">
 				<div class="overlay"></div>
 			</div>
@@ -16,7 +16,7 @@
 			<div class="overlay"></div>
 
 			</div> -->
-			
+
 		</div>
 	</div>
 	<div class="food_bg_text">
@@ -26,9 +26,9 @@
 
 <section class="food" id="food_sec">
   <div class="container">
- 
+
     <div class="row">
-   
+
     @foreach($food[0]->foods as $keys => $values)
       <div class="col-lg-4 col-sm-6 breakfast_box">
       <form id="add-to-cart-foodsabcd{{$keys}}">
@@ -36,12 +36,12 @@
             <img src="{{asset('public/storage/foods/'.$values->image)}}" alt="" class="img-fluid">
             <h5>{{$values->name}}</h5>
             <input type="hidden" name="product_name" value="{{$values->name}}" >
-            <span id="chosen_price{{$keys}}"><i class="bi bi-currency-rupee"></i>{{$values->amount}}</span>
+            <span ><i class="bi bi-currency-rupee"></i><span id="chosen_price{{$keys}}">{{$values->amount}}</span></span>
             <input type="hidden" name="price" value="{{$values->amount}}" id="chosen_price1{{$keys}}">
             <!-- <input type="hidden" name="price" value="{{$values->amount}}" id="chosen_price1abcd{{$keys}}"> -->
             <div class="d-flex align-items-center">
              <button type="button" class="decrement_btn" onclick="dec_quantity('<?php echo 1 ?>','<?php echo $keys ?>','<?php echo $values->amount ?>')"><i class="bi bi-file-minus"></i></button>
-               <input type="text" value="1" name="quantity" class="counter_one form-control" id="food_cart_quantity{{$keys}}"/> 
+               <input type="text" value="1" name="quantity" class="counter_one form-control" id="food_cart_quantity{{$keys}}"/>
               <!--<input type="text" value="1" name="quantity" class="counter_one form-control" id="food_cart_quantity{{$keys}}"/>-->
               <button type="button" class="increment_btn" onclick="inc_quantity('<?php echo 1 ?>','<?php echo $keys ?>','<?php echo $values->amount ?>')"><i class="bi bi-plus"></i></button>
               <div class="order_box">
@@ -171,7 +171,7 @@
           </div>
       </div> -->
     </div>
-    
+
       <div class="view_btn_box d-flex justify-content-center">
         <a href="" class="btn book_btn" id="loadMore"> <p> view more</p></a>
       </div>
@@ -201,16 +201,16 @@
         if($(".breakfast_box:hidden").length == 0) {
           $("#loadMore").text("No Content").addClass("noContent");
         }
-      });           
+      });
     })
 
 
 
 
-    
+
     // var $button1 = $('.increment_btn')
     // var $counter_one = $('.counter_one');
-    
+
     // var $button2 = $('.incrementOne_btn');
     // var $counter2 = $('.counter_two');
     // var $button3 = $('.incrementTwo_btn');

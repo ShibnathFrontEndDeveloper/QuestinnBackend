@@ -19,7 +19,7 @@
               </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-12">
                 <div class="payMentDetailsBox">
@@ -35,16 +35,16 @@
                         <form class="d-flex flex-column align-items-center mb-3" action="{{route('room_booked_checkout')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                                 <!--1)Payment By UPI-->
-                                
+
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="flexRadioDefault" value="qr_code" id="flexRadioDefault1" > 
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" value="qr_code" id="flexRadioDefault1" >
                                   <label class="form-check-label" for="flexRadioDefault1">
                                     <div class="scanStep_part">
                                         <div class="scanBoxImage">
                                             <h5>UPI QR Code</h5>
                                             <img src="{{asset('public/images/scaner.webp')}}" >
                                         </div>
-                                        
+
                                         <div class="scanDetailsStep">
                                             <div class="stepTextBox">
                                                 <h1>Step 1:</h1>
@@ -59,19 +59,19 @@
                                                 <p>Once payment done, Enter 12 digit UTR number and click submit button to confirm the payment.
                                                 If you don't backfill UTR, 100% oif the deposit transaction will fail. Please be sure to backfill.</p>
                                             </div>
-                                            
+
                                         </div>
-                                        
+
                                     </div>
                                   </label>
                                 </div>
-                                
+
                                 <div class="col-md-12">
                                     <input  class="form-control" name="transaction_id" placeholder="Enter your UTR/UPI Transaction ID/Challan/Reference Number">
                                     <span>(Copy from banking app-enter currect number)</span>
                                 </div>
-                               
-                                
+
+
                                 <div class="d-none">
                                     <input type="hidden" class="form-control" name="name" value="{{$request['name']}}">
                                     <input type="hidden" class="form-control" name="email" value="{{$request['email']}}">
@@ -81,17 +81,19 @@
                                     <input type="hidden" class="form-control" name="no_rooms" value="{{$request['no_rooms']}}">
                                     <input type="hidden" class="form-control" name="address" value="{{$request['address']}}">
                                     <input type="hidden" class="form-control" name="room_id" value="{{$request['room_id']}}">
+                                    <input type="hidden" class="form-control" name="adults" value="{{$request['adults']}}">
+                                    <input type="hidden" class="form-control" name="childrens" value="{{$request['childrens']}}">
                                     <input type="file" class="form-control" name="image" value="{{$request['image']}}">
                                 </div>
                                 <div class="mt-3 col-md-12">
                                     <input type="file" name="scrnshot" placeholder="Enter your payment screenshot" class="form-control">
                                     <span>(Enter your payment screenshot)</span>
                                 </div>
-                                
+
                                 <span>OR</span>
-                                
+
                                 <!--2)Book Now Pay Later-->
-                                
+
                                 <div class="col-md-12">
                                     <div class="form-check">
                                       <input class="form-check-input" type="radio" name="flexRadioDefault" value="pay_later" id="flexRadioDefault2" checked>
@@ -101,18 +103,18 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn mt-4 order_btn">Submit</button>
-                                
-                                
-                                
+
+
+
                                 <!--Choose Payment Option-->
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
+
+
+
+
+
+
+
+
                             </form>
                     </div>
                 </div>

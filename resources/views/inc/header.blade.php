@@ -113,9 +113,9 @@
   </div>
     
   <div class="offcanvas-body cart_detail_box">
+  @php $total_amount = 0; @endphp
   @if(request()->session()->has('cart'))
   @php $cart = request()->session()->get('cart');   @endphp   
-  @php $total_amount = 0; @endphp
   @foreach($cart as $cartKey => $cartValue)
   @php $product = DB::table('food')->where('id',$cartValue['product_id'])->first(); @endphp  
 	<div class="row align-items-center border-bottom">
@@ -129,7 +129,7 @@
 				<h5 class="cart_product_heading">{{@$product->name}}</h5>
 			</div>
 			<div class="facility_box add_box">
-				<h5><span id="chosen_price{{$cartKey}}"><i class="bi bi-currency-rupee"></i>{{@$cartValue['amount']}}</span></h5>
+				<h5><span id="chosen_price{{$cartKey}}">{{@$cartValue['amount']}}</span></h5>
 				<form action="" class="d-flex align-items-center counter_box mb-3">
 					<!-- <button type="button" class="decrement_btn" onclick="dec_quantity('<?php echo 1 ?>','<?php echo $cartKey ?>','<?php echo $cartValue['amount'] ?>')"><i class="bi bi-file-minus"></i></button>
 					<input type="text" value="1" id="food_cart_quantity{{$cartKey}}" class="counter_one form-control">
@@ -141,7 +141,7 @@
 			</div>
 		</div>
 	</div>
-	@php $total_amount += $cartValue['amount']  @endphp
+	@php $total_amount += (int)$cartValue['amount']  @endphp
 	@endforeach 
 	@if($total_amount>0)
     	<div class="row mt-2 border-bottom">

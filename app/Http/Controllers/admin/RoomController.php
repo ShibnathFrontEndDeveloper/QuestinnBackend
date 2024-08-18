@@ -24,15 +24,15 @@ class RoomController extends Controller
         return view('admin.admin-views.room.add',compact('facilities','categories'));
     }
 
-    public function add(Request $request){  
+    public function add(Request $request){
 
         // $validator = Validator::make($request->all(),[
         //     'brand_name'  => 'required',
         // ]);
 
         // if($validator->fails()){
-        //     return response()->json($validator->errors());       
-        // }                          
+        //     return response()->json($validator->errors());
+        // }
         $room = new Room();
         $room->title = $request->title;
         $room->slug = Str::slug($request->title);
@@ -43,25 +43,25 @@ class RoomController extends Controller
             foreach($request->file('image') as $file)
             {
                 $name = time().'_'.rand(999,9999).'.'.$file->getClientOriginalName();
-                $file->move(public_path('storage/room'), $name);  
-                $imgData[] = $name;  
-            }                                  
-        }                           
+                $file->move(public_path('storage/room'), $name);
+                $imgData[] = $name;
+            }
+        }
         $room->images = json_encode($imgData);
         $room->number_of_bed = $request->bedroom;
         $room->number_of_bathroom = $request->bathroom;
-        $room->is_balcony = $request->is_balcony;       
+        $room->is_balcony = $request->is_balcony;
         $room->facilities = json_encode($request->features);
         $room->categories = $request->category;
         $room->adults = $request->adults;
         $room->childrens = $request->chirdrens;
-        $room->room_quantity = $request->room_no;         
+        $room->room_quantity = $request->room_no;
         $room->save();
 
         toastr()->success('Room Add Successfully');
         return redirect()->back();
     }
- 
+
     public function delete($id){
       $delete = Room::find($id);
       $delete->delete();
@@ -78,7 +78,7 @@ class RoomController extends Controller
     }
 
     public function update(Request $request,$id){
-        
+
         $room = Room::find($id);
 
         // $validator = Validator::make($request->all(),[
@@ -86,7 +86,7 @@ class RoomController extends Controller
         // ]);
 
         // if($validator->fails()){
-        //     return response()->json($validator->errors());       
+        //     return response()->json($validator->errors());
         // }
         // $room->title = $request->title;
         // $room->price = $request->price;
@@ -96,28 +96,28 @@ class RoomController extends Controller
             foreach($request->file('image') as $file)
             {
                 $name = time().'_'.rand(999,9999).'.'.$file->getClientOriginalName();
-                $file->move(public_path('storage/room'), $name);  
-                $imgData[] = $name;  
-            } 
-            $imageName  = json_encode($imgData);                        
+                $file->move(public_path('storage/room'), $name);
+                $imgData[] = $name;
+            }
+            $imageName  = json_encode($imgData);
         }else{
         	$imageName = $room->images;
         }
-        
+
 
         $room->title = $request->title;
         $room->slug = Str::slug($request->title);
         $room->price = $request->price;
-        $room->description = $request->description;                               
+        $room->description = $request->description;
         $room->images = $imageName;
         $room->number_of_bed = $request->bedroom;
         $room->number_of_bathroom = $request->bathroom;
-        $room->is_balcony = $request->is_balcony;       
+        $room->is_balcony = $request->is_balcony;
         $room->facilities = json_encode($request->features);;
         $room->categories = $request->category;
         $room->adults = $request->adults;
         $room->childrens = $request->chirdrens;
-        $room->room_quantity = $request->room_no;    
+        $room->room_quantity = $request->room_no;
         $room->save();
 
         toastr()->success('Room Updated Successfully');
@@ -130,10 +130,23 @@ class RoomController extends Controller
     }
 
     public function add_room_no(Request $request,$id){
-       
+
         $insert = new RoomNo();
         $insert->room_id = $id;
         $insert->room_no = $request->room_no;
+        $insert->room_status = $request->room_status;
+        $insert->save();
+
+        toastr()->success('Room Updated Successfully');
+        return redirect()->back();
+
+    }
+
+    public function edit_room_no(Request $request){
+
+        $insert = RoomNo::find($request->edit_id);
+        $insert->room_no = $request->room_no;
+        $insert->room_status = $request->room_status;
         $insert->save();
 
         toastr()->success('Room Updated Successfully');

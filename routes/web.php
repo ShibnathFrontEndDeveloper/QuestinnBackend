@@ -18,8 +18,13 @@ use App\Http\Controllers\web\profileController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
+// Route::get('/test', function () {
+//     $name = "raj";
+//     $otp = 1234;
+//     $data = [
+//         "name" => "raj"
+//     ];
+//     return view('email-template.welcome-mail',compact(['data']));
 // });
 
 Route::get('/', [HomeController::class, 'index'])->name('index');

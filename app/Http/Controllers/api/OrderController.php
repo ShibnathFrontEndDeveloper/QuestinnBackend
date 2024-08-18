@@ -32,7 +32,7 @@ class OrderController extends Controller
         ]);
 
         if($validator->fails()){
-            return response()->json($validator->errors());       
+            return response()->json($validator->errors());
         }
 
         $add_options = array();
@@ -42,11 +42,12 @@ class OrderController extends Controller
                 $deleteAdd = AddOptions::where('user_id',auth('sanctum')->user()->id)->where('addOptions_id',$values['id'])->delete();
             }
         }
-            
+
         $order = Order::orderBy('id','desc')->first();
 
         $orders = new Order();
         $orders->id             = 1000 + $order->id;
+        $orders->order_id         = $this->generateOrderId();
         $orders->trans_id       = $request->txnid;
         $orders->user_id        = $request->user_id;
         $orders->addition_id    = json_encode($add_options);
@@ -85,5 +86,16 @@ class OrderController extends Controller
             'customer_address'    => ($orders->cust_address != null)?$orders->cust_address:'',
             'payment_mode'        => ($orders->payment_mode != null)?$orders->payment_mode:'',
         ]);
+    }
+    public function generateOrderId($length = 10) {
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+
+        return 'ORDER-' . $randomString.'_'.date('YmdHms');
     }
 }

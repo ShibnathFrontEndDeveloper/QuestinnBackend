@@ -37,8 +37,7 @@
                   <i class="bi bi-cart"></i>
                 </div>
                 <div class="ps-3">
-                  <h6></h6>
-                  
+                  <h6>{{@$totalOrder}}</h6>
                 </div>
               </div>
             </div>
@@ -71,8 +70,7 @@
                   <i class="bi bi-currency-rupee"></i>
                 </div>
                 <div class="ps-3">
-                  
-
+                  <h6>{{@$sales}}</h6>
                 </div>
               </div>
             </div>
@@ -81,10 +79,8 @@
         </div><!-- End Revenue Card -->
 
         <!-- Customers Card -->
-        <div class="col-xxl-4 col-xl-12">
-
+        <div class="col-xxl-4 col-xl-6">
           <div class="card info-card customers-card">
-
             <!--{{-- <div class="filter">-->
             <!--  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
             <!--  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
@@ -106,7 +102,7 @@
                   <i class="bi bi-people"></i>
                 </div>
                 <div class="ps-3">
-                  
+                    <h6>{{@$customer}}</h6>
                 </div>
               </div>
 
@@ -115,33 +111,30 @@
 
         </div><!-- End Customers Card -->
         
-        <div class="col-xxl-4 col-md-6">
-          <div class="card info-card sales-card">
+        <!--<div class="col-xxl-4 col-md-6">-->
+        <!--  <div class="card info-card sales-card">-->
 
            
 
-            <div class="card-body">
-              <h5 class="card-title">Room Booking</h5>
+        <!--    <div class="card-body">-->
+        <!--      <h5 class="card-title">Room Booking</h5>-->
 
-              <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-house"></i>
-                </div>
-                <div class="ps-3">
-                  <h6></h6>
+        <!--      <div class="d-flex align-items-center">-->
+        <!--        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">-->
+        <!--          <i class="bi bi-house"></i>-->
+        <!--        </div>-->
+        <!--        <div class="ps-3">-->
+        <!--          <h6></h6>-->
                   
-                </div>
-              </div>
-            </div>
+        <!--        </div>-->
+        <!--      </div>-->
+        <!--    </div>-->
 
-          </div>
-        </div>
+        <!--  </div>-->
+        <!--</div>-->
         
         <div class="col-xxl-4 col-md-6">
           <div class="card info-card sales-card">
-
-           
-
             <div class="card-body">
               <h5 class="card-title">Food Order</h5>
 
@@ -150,8 +143,7 @@
                   <i class="bi bi-egg"></i>
                 </div>
                 <div class="ps-3">
-                  <h6></h6>
-                  
+                  <h6>{{@$foodOrder}}</h6>
                 </div>
               </div>
             </div>
@@ -164,19 +156,19 @@
 
            
 
-            <div class="card-body">
-              <h5 class="card-title">New Registration</h5>
+            <!--<div class="card-body">-->
+            <!--  <h5 class="card-title">New Registration</h5>-->
 
-              <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-people"></i>
-                </div>
-                <div class="ps-3">
-                  <h6></h6>
+            <!--  <div class="d-flex align-items-center">-->
+            <!--    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">-->
+            <!--      <i class="bi bi-people"></i>-->
+            <!--    </div>-->
+            <!--    <div class="ps-3">-->
+            <!--      <h6></h6>-->
                   
-                </div>
-              </div>
-            </div>
+            <!--    </div>-->
+            <!--  </div>-->
+            <!--</div>-->
 
           </div>
         </div>

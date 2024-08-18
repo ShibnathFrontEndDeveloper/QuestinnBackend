@@ -157,6 +157,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], fu
             Route::post('/update/{id}', [RoomController::class, 'update'])->name('update');
 
             Route::post('/add-room-no/{id}', [RoomController::class, 'add_room_no'])->name('add_room_no');
+            Route::post('/edit-room-no', [RoomController::class, 'edit_room_no'])->name('edit_room_no');
 
             Route::get('/room-no-delete/{id}', [RoomController::class, 'room_delete'])->name('delete_room_no');
 
